@@ -2,7 +2,7 @@ import {Request, Response} from "express";
 import {container} from "tsyringe";
 import findAllOffersService from "@modules/offers/services/FindAllOffersService";
 
-export default class ListAllOffersController {
+export default class FindAllOffersController {
     public async find(request: Request, response: Response): Promise<Response> {
 
         const listAllOffers = container.resolve(findAllOffersService);

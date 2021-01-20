@@ -33,7 +33,7 @@ class CreateOfferService {
         }
 
         if (isBefore(ends_at, starts_at) || isEqual(starts_at, ends_at)) {
-            throw new AppError(`You can't create one offer to end in the past of start`, 400)
+            throw new AppError(`The ends_at date have to be greater than starts_at date`, 400)
         }
 
         return await this.offersRepository.create({
@@ -47,17 +47,5 @@ class CreateOfferService {
         });
     }
 }
-
-// function getStatus(starts_at: Date, ends_at: Date): 'enabled' | 'disabled' {
-//     if (isAfter(Date.now(), starts_at)) {
-//         return "enabled"
-//     }
-//
-//     if (isAfter(Date.now(), ends_at)) {
-//         return "disabled"
-//     }
-//
-//     return "disabled"
-// }
 
 export default CreateOfferService;

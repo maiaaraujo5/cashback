@@ -27,4 +27,8 @@ export default class OffersRepository implements IOffersRepository {
             where: {advertiser_name},
         })
     }
+
+    public async update(offer: Offer): Promise<Offer> {
+        return await this.ormRepository.save(offer)
+    }
 }
