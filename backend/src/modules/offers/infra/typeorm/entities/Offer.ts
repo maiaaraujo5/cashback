@@ -1,11 +1,11 @@
-import {Column, CreateDateColumn, Entity, PrimaryGeneratedColumn, UpdateDateColumn} from "typeorm";
+import {Column, CreateDateColumn, Entity, PrimaryColumn, PrimaryGeneratedColumn, UpdateDateColumn} from "typeorm";
 
 @Entity('offers')
 class Offer {
-    @PrimaryGeneratedColumn('increment')
-    id: string;
-
     @Column()
+    id: number;
+
+    @PrimaryColumn()
     advertiser_name: string;
 
     @Column()
@@ -17,10 +17,13 @@ class Offer {
     @Column()
     premium: boolean;
 
-    @Column({type: 'timestamp'})
+    @Column()
+    status: string;
+
+    @Column('timestamp with time zone')
     ends_at: Date;
 
-    @Column({type: 'timestamp'})
+    @Column('timestamp with time zone')
     starts_at: Date;
 
     @CreateDateColumn()

@@ -3,6 +3,7 @@ export default interface ICreateOfferDTO {
     url: string
     description: string
     premium: boolean
-    ends_at: string
-    starts_at: string
+    status: 'enabled' | 'disabled'
+    ends_at: Date
+    starts_at: Date
 }

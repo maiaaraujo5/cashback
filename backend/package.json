@@ -7,7 +7,7 @@
     "build": "tsc",
     "dev:server": "ts-node-dev -r tsconfig-paths/register --inspect --transpile-only --ignore-watch node_modules src/shared/infra/http/server.ts",
     "typeorm": "ts-node-dev  -r tsconfig-paths/register ./node_modules/typeorm/cli.js",
-    "test": "cross-env NODE_ENV=test jest"
+    "test": "NODE_ENV=test jest"
   },
   "devDependencies": {
     "@babel/cli": "^7.10.3",
@@ -49,7 +49,7 @@
     "celebrate": "^12.1.1",
     "class-transformer": "^0.2.3",
     "cors": "^2.8.5",
-    "date-fns": "^2.11.1",
+    "date-fns": "^2.16.1",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "express-async-errors": "^3.1.1",
@@ -62,5 +62,6 @@
     "reflect-metadata": "^0.1.13",
     "tsyringe": "^4.1.0",
     "typeorm": "^0.2.24",
-    "uuidv4": "^6.0.7"}
+    "uuidv4": "^6.0.7"
+  }
 }
