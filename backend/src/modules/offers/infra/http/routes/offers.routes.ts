@@ -4,12 +4,14 @@ import {celebrate, Joi, Segments} from "celebrate";
 import FindAllOffersController from "@modules/offers/infra/http/controllers/FindAllOffersController";
 import UpdateOffersController from "@modules/offers/infra/http/controllers/UpdateOffersController";
 import UpdateOffersStatusController from "@modules/offers/infra/http/controllers/UpdateOffersStatusController";
+import DeleteOffersController from "@modules/offers/infra/http/controllers/DeleteOffersController";
 
 const offersRouter = Router();
 const offersController = new OffersController();
 const listAllOffersController = new FindAllOffersController();
 const updateOfferController = new UpdateOffersController();
 const updateOffersStatusController = new UpdateOffersStatusController();
+const deleteOffersController = new DeleteOffersController();
 
 offersRouter.post(
     '/',
@@ -52,6 +54,16 @@ offersRouter.patch(
         }
     }),
     updateOffersStatusController.update
+);
+
+offersRouter.delete(
+    '/:advertiser_name',
+     celebrate({
+         [Segments.PARAMS]: {
+             advertiser_name: Joi.string().required(),
+         }
+     }),
+    deleteOffersController.delete
 );
 
 offersRouter.get('/', listAllOffersController.find);

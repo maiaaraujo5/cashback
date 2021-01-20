@@ -2,7 +2,7 @@ import {inject, injectable} from "tsyringe";
 import IOffersRepository from "@modules/offers/repositories/IOffersRepository";
 import Offer from "@modules/offers/infra/typeorm/entities/Offer";
 import AppError from "@shared/errors/AppError";
-import {isAfter, isBefore, isEqual} from "date-fns";
+import {isAfter} from "date-fns";
 
 interface IRequest {
     advertiser_name: string

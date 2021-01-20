@@ -9,4 +9,6 @@ export default interface IOffersRepository {
     findByAdvertiserName(advertiser_name: string): Promise<Offer | undefined>
 
     update(offer: Offer): Promise<Offer>
+
+    delete(advertiser_name: string): Promise<void>
 }

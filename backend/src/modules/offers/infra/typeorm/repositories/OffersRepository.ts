@@ -31,4 +31,10 @@ export default class OffersRepository implements IOffersRepository {
     public async update(offer: Offer): Promise<Offer> {
         return await this.ormRepository.save(offer)
     }
+
+    public async delete(advertiser_name: string) {
+        await this.ormRepository.delete({
+            advertiser_name
+        })
+    }
 }
