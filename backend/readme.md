@@ -6,6 +6,8 @@ Os requisitos necessários para rodar a aplicação são:
 
 * [Node](https://nodejs.org/en/download/)
 * [Yarn](https://classic.yarnpkg.com/en/docs/install/)
+* [Docker](https://docs.docker.com/get-docker/)
+* [Docker-compose](https://docs.docker.com/compose/install/)
 
 **Clique nos links acima para instalar as dependências caso ainda não tenha no seu ambiente**
 
@@ -39,7 +41,7 @@ Para visualizar as especificações da api acesse esta [documentação](https://
 * Este comando é responsável por rodar as migrations no banco de dados.
 
 ####  make revert-migrations:
-* Este comando é responsável por desfazer a ultima migration no banco de dados.
+* Este comando é responsável por desfazer a última migration no banco de dados.
 
 ####  make run-dev-with-postgres
 * Este comando é responsável por subir o banco de dados através do docker-compose, rodar as migrations e subir a aplicação deixando ela pronta para receber requests.
