@@ -14,12 +14,12 @@ Os requisitos necessários para rodar a aplicação são:
 A aplicação depende do postgres para realizar a persistência dos dados e partindo deste princípio temos dois modos para rodar a nossa aplicação: 
 
 #### make run-dev
-Se você já tem uma instância do postgre rodando em seu ambiente ou na nuvem pode facilmente apontar para sua instância, rodar o script de criação das tabelas e subir a aplicação com o comando ***make run-dev***. Basta apenas alterar as variáveis de ambiente presentes no Makefile
+Se você já tem uma instância do postgre rodando em seu ambiente ou na nuvem pode facilmente apontar para sua instância, rodar as migrations e subir a aplicação com o comando ***make run-dev***. Basta apenas alterar as variáveis de ambiente presentes no Makefile
 
 #### make run-dev-with-postgres
 Se você não tem uma instância do postgre ou simplesmente quer rodar a aplicação do jeito mais rápido possível. Basta executar o comando ***make run-dev-with-postgres*** que irá subir uma imagem do postgre executar as migrations na database e no final a aplicação rodará pronta para receber os requests
 
-## *Requests*
+## *Documentação*
 
 #### Postman Collection
 Caso você utilize postman para realizar requisições em suas apis basta importar essa [collection](https://www.getpostman.com/collections/90c64ac07d91be188379)
