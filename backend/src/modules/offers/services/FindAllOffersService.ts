@@ -11,17 +11,7 @@ class FindAllOffersService {
     }
 
     public async execute(): Promise<Offer[] | undefined> {
-        const offers = await this.offersRepository.findAll();
-
-        offers.sort((a, b) => {
-            if (a.premium === b.premium) {
-                return 0
-            } else {
-                return -1
-            }
-        });
-
-        return offers;
+        return await this.offersRepository.findAll();
     }
 }
 export default FindAllOffersService

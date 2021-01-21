@@ -13,7 +13,7 @@ describe('FindAllOffers', () => {
         findAllOffersService = new FindAllOffersService(fakeOffersRepository)
     });
 
-    it("should be able to find all offers and sort them", async () => {
+    it("should be able to find all offers", async () => {
         await fakeOffersRepository.create({
             advertiser_name: "brand",
             url: "http://brand.com.br",
@@ -38,16 +38,6 @@ describe('FindAllOffers', () => {
 
         expect(offers).toEqual([
             {
-                id: 2,
-                advertiser_name: "brand2",
-                url: "http://brand2.com.br",
-                premium: true,
-                description: "description2",
-                ends_at: new Date(2021, 4, 10, 12),
-                starts_at: new Date(2021, 3, 10, 12),
-                status: "enabled"
-            },
-            {
                 id: 1,
                 advertiser_name: "brand",
                 url: "http://brand.com.br",
@@ -56,7 +46,18 @@ describe('FindAllOffers', () => {
                 ends_at: new Date(2021, 4, 10, 12),
                 starts_at: new Date(2021, 3, 10, 12),
                 status: "disabled"
-            }])
+            },
+            {
+                id: 2,
+                advertiser_name: "brand2",
+                url: "http://brand2.com.br",
+                premium: true,
+                description: "description2",
+                ends_at: new Date(2021, 4, 10, 12),
+                starts_at: new Date(2021, 3, 10, 12),
+                status: "enabled"
+            }
+           ])
     })
 });
 

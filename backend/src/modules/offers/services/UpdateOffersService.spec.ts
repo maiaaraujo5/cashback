@@ -71,8 +71,8 @@ describe('UpdateOffers', () => {
             url: "http://brand.com.br",
             premium: true,
             description: "new description",
-            ends_at: new Date(2021, 7, 10, 12),
-            starts_at: new Date(2021, 3, 10, 12),
+            ends_at: new Date(2022, 7, 10, 12),
+            starts_at: new Date(2022, 3, 10, 12),
         });
 
         expect(offer).toEqual({
@@ -82,8 +82,8 @@ describe('UpdateOffers', () => {
             premium: true,
             description: "new description",
             status: "disabled",
-            ends_at: new Date(2021, 7, 10, 12),
-            starts_at: new Date(2021, 3, 10, 12),
+            ends_at: new Date(2022, 7, 10, 12),
+            starts_at: new Date(2022, 3, 10, 12),
         })
 
     });
@@ -154,6 +154,43 @@ describe('UpdateOffers', () => {
             ends_at: new Date(2021, 3, 10, 12),
             starts_at: new Date(2021, 3, 10, 12),
         })).rejects.toBeInstanceOf(AppError);
+
+    });
+
+    it("should disable offer when update ends_at is before than current time", async () => {
+        jest.spyOn(Date, 'now').mockImplementationOnce(() => {
+            return new Date(2021, 7, 10, 12).getTime()
+        });
+
+        await fakeOffersRepository.create({
+            advertiser_name: "brand",
+            url: "http://brand.com.br",
+            premium: false,
+            description: "description",
+            ends_at: new Date(2021, 10, 10, 12),
+            starts_at: new Date(2021, 3, 10, 12),
+            status: "enabled"
+        });
+
+        const offer = await updateOffersService.execute({
+            advertiser_name: "brand",
+            url: "http://brand.com.br",
+            premium: true,
+            description: "new description",
+            ends_at: new Date(2020, 4, 10, 12),
+            starts_at: new Date(2020, 3, 10, 12),
+        });
+
+        expect(offer).toEqual({
+            id: 1,
+            advertiser_name: "brand",
+            url: "http://brand.com.br",
+            premium: true,
+            description: "new description",
+            status: "disabled",
+            ends_at: new Date(2020, 4, 10, 12),
+            starts_at: new Date(2020, 3, 10, 12),
+        });
 
     });
 });
