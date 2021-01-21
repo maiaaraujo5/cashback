@@ -14,7 +14,7 @@ interface IRequest {
 }
 
 @injectable()
-class UpdateOfferService {
+class UpdateOffersService {
     constructor(
         @inject('OffersRepository')
         private offersRepository: IOffersRepository,
@@ -52,4 +52,4 @@ function getStatus(starts_at: Date, ends_at: Date): 'enabled' | 'disabled' {
     return "disabled"
 }
 
-export default UpdateOfferService
+export default UpdateOffersService

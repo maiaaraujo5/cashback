@@ -10,6 +10,6 @@ export default class DeleteOffersController {
 
         const offer = await updateOffer.execute(advertiser_name);
 
-        return response.json(offer)
+        return response.status(204).json(offer)
     }
 }

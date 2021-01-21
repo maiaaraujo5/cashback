@@ -1,6 +1,6 @@
 import {Request, Response} from "express";
 import {container} from "tsyringe";
-import UpdateOfferService from "@modules/offers/services/UpdateOfferService";
+import UpdateOffersService from "@modules/offers/services/UpdateOffersService";
 import UpdateOffersStatusService from "@modules/offers/services/UpdateOffersStatusService";
 
 export default class UpdateOffersStatusController{

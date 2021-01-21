@@ -3,7 +3,7 @@ import IOffersRepository from "@modules/offers/repositories/IOffersRepository";
 import Offer from "@modules/offers/infra/typeorm/entities/Offer";
 
 @injectable()
-class findAllOffersService {
+class FindAllOffersService {
     constructor(
         @inject('OffersRepository')
         private offersRepository: IOffersRepository,
@@ -24,4 +24,4 @@ class findAllOffersService {
         return offers;
     }
 }
-export default findAllOffersService
+export default FindAllOffersService
